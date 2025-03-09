@@ -20,4 +20,11 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
+
+    private void sidebar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        NavButton? selectedTab = sidebar.SelectedItem as NavButton;
+
+        navFrame.Navigate(selectedTab?.NavLink);
+    }
 }
