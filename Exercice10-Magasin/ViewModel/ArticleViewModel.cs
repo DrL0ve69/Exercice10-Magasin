@@ -29,14 +29,6 @@ public class ArticleViewModel : INotifyPropertyChanged
     }
     public ArticleViewModel()
     {
-        Articles = new ObservableCollection<Article>
-        {
-            new Article("1001", "Article 1", 1.1, 11.1, 101),
-            new Article("1002", "Article 2", 22, 22.22, 20),
-            new Article("1003", "Article 3", 333, 333.03, 33),
-            new Article("1004", "Article 4", 1.1, 4, 4),
-            new Article("1005", "Article 5", 25, 55, 50),
-            new Article("1006", "Article 6", 6, 666, 66),
-        };
+        Articles = ArticleDataModel.GetAll_Articles();
     }
 }

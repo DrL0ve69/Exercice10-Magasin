@@ -41,7 +41,8 @@
             Command="{Binding PreviousSectionCommand}"
             Content="Section précédente" 
             HorizontalAlignment="Left"
-            Height="37" Width="176" Margin="113,300,0,182"/>
+            VerticalAlignment="Top" 
+            Height="37" Width="115" Margin="113,300,0,0"/>
         <Button
             Command="{Binding NextSectionCommand}"
             Content="Section suivante" 
