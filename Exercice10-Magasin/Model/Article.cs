@@ -86,6 +86,11 @@ public class Article
         if (quantite > QuantiteStock) throw new ArgumentException("La quantité vendue ne doit pas dépasser la quantité en stock.");
         QuantiteStock -= quantite;
     }
+    public override string ToString()
+    {
+        return $"Code: {Code}, Nom: {NomArticle}\n" +
+            $"PrixVente: {PrixVente}, Quantité en stock: {QuantiteStock}";
+    }
     // La méthode <<Deplacer>> se retrouve présentement dans section
     /*
     public void Deplacer() 
