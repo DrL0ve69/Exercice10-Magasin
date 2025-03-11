@@ -29,15 +29,27 @@
             HorizontalAlignment="Center"
             Margin="0,47,0,232" Width="444"
         />
-        
-        
+
+
         <Button
             Command="{Binding AjoutPanierCommand}"
             Content="Ajouter au panier" 
             HorizontalAlignment="Center" 
-            Margin="0,292,0,175" Width="216"
+            Margin="0,292,0,175" Width="222"
         />
-        
-        
+        <Button
+            Command="{Binding PreviousSectionCommand}"
+            Content="Section précédente" 
+            HorizontalAlignment="Left"
+            Height="37" Width="176" Margin="113,300,0,182"/>
+        <Button
+            Command="{Binding NextSectionCommand}"
+            Content="Section suivante" 
+            HorizontalAlignment="Left" 
+            Margin="516,300,0,0" 
+            VerticalAlignment="Top" 
+            Height="37" Width="111"/>
+
+
     </Grid>
 </Page>

@@ -60,10 +60,29 @@ public class SectionViewModel : INotifyPropertyChanged
             OnPropertyChanged(nameof(Articles));
         }
     }
+    private int _indexSection;
+    public int IndexSection
+    {
+        get => _indexSection;
+        set
+        {
+            _indexSection = value;
+            OnPropertyChanged(nameof(IndexSection));
+        }
+    }
+    // Les commandes de la page section
+    public ICommand PreviousSectionCommand { get; }
+    public ICommand NextSectionCommand { get; }
     public ICommand AjoutPanierCommand { get; }
+
+    // Initialisation des commandes&propriétés
     public SectionViewModel()
     {
         AjoutPanierCommand = new RelayCommand(AjoutPanier, CanAjouterPanier);
+        // Section suivante&précédente
+        NextSectionCommand = new RelayCommand(NextSection, CanNextSection);
+        PreviousSectionCommand = new RelayCommand(PreviousSection, CanPreviousSection);
+
         Sections = new ObservableCollection<Section>
         {
             new Section(1, "Section 1"),
@@ -93,8 +112,9 @@ public class SectionViewModel : INotifyPropertyChanged
             Articles[4],
             Articles[5],
         };
-        SelectedSection = Sections[0];
-        SelectedArticle = SelectedSection.Liste_Articles_Section[0];
+        IndexSection = 3;
+        SelectedSection = Sections[IndexSection];
+        //SelectedArticle = SelectedSection.Liste_Articles_Section[0]; Pour une sélection automatique de l'article
         Sections[0].NomSection = "Section 1 - Updated";
 
     }
@@ -105,5 +125,17 @@ public class SectionViewModel : INotifyPropertyChanged
         // L'achat fonctionne mais l'interface ne fonctionne pas...
         
         SelectedArticle.Vendre(1);
+    }
+    private bool CanPreviousSection() => IndexSection > 0;
+    private void PreviousSection()
+    {
+        IndexSection--;
+        SelectedSection = Sections[IndexSection];
+    }
+    private bool CanNextSection() => IndexSection < Sections.Count - 1;
+    private void NextSection()
+    {
+        IndexSection++;
+        SelectedSection = Sections[IndexSection];
     }
 }
