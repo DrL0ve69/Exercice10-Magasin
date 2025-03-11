@@ -123,7 +123,8 @@ public class SectionViewModel : INotifyPropertyChanged
     private void AjoutPanier()
     {
         // L'achat fonctionne mais l'interface ne fonctionne pas...
-        
+        // HOOOOLD ON SON !!! Si on change de page et qu'on revient, ça fonctionne...
+
         SelectedArticle.Vendre(1);
     }
     private bool CanPreviousSection() => IndexSection > 0;
