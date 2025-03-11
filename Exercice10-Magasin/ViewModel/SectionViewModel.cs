@@ -47,6 +47,7 @@ public class SectionViewModel : INotifyPropertyChanged
         {
             _selectedArticle = value;
             OnPropertyChanged(nameof(SelectedArticle));
+            OnPropertyChanged(nameof(SelectedSection.Liste_Articles_Section));
         }
     }
     private ObservableCollection<Article> _articles = new();
@@ -83,8 +84,15 @@ public class SectionViewModel : INotifyPropertyChanged
             new Article("1006", "Article 6", 6, 666, 66),
         };
 
-
-        Sections[0].Liste_Articles_Section = Articles.ToList();
+        Sections[0].Liste_Articles_Section = new ObservableCollection<Article>
+        {
+            Articles[0],
+            Articles[1],
+            Articles[2],
+            Articles[3],
+            Articles[4],
+            Articles[5],
+        };
         SelectedSection = Sections[0];
         SelectedArticle = SelectedSection.Liste_Articles_Section[0];
         Sections[0].NomSection = "Section 1 - Updated";
@@ -97,6 +105,5 @@ public class SectionViewModel : INotifyPropertyChanged
         // L'achat fonctionne mais l'interface ne fonctionne pas...
         
         SelectedArticle.Vendre(1);
-        
     }
 }

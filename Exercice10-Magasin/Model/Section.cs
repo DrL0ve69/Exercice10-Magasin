@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,8 +29,8 @@ public class Section
             _nomSection = value;
         }
     }
-    private List<Article> _liste_Articles_Section;
-    public List<Article> Liste_Articles_Section
+    private ObservableCollection<Article> _liste_Articles_Section;
+    public ObservableCollection<Article> Liste_Articles_Section
     {
         get => _liste_Articles_Section;
         set
@@ -41,15 +42,15 @@ public class Section
     {
         Numero = 0;
         NomSection = "Non-disponible";
-        Liste_Articles_Section = new List<Article>();
+        Liste_Articles_Section = new ObservableCollection<Article>();
     }
     public Section(int numero, string nomSection)
     {
         Numero = numero;
         NomSection = nomSection;
-        Liste_Articles_Section = new List<Article>();
+        Liste_Articles_Section = new ObservableCollection<Article>();
     }
-    public Section(int numero, string nomSection, List<Article> liste_Articles_Section)
+    public Section(int numero, string nomSection, ObservableCollection<Article> liste_Articles_Section)
     {
         Numero = numero;
         NomSection = nomSection;
