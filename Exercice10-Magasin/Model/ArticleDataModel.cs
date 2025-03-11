@@ -34,7 +34,7 @@ public class ArticleDataModel
     {
         DB_Articles.Remove(article);
     }
-    public static Article GetArticle(string code)
+    public static Article? GetArticle(string code)
     {
         return DB_Articles.FirstOrDefault(a => a.Code == code);
     }

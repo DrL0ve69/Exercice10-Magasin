@@ -26,6 +26,7 @@
         <ListBox
             ItemsSource="{Binding SelectedSection.Liste_Articles_Section}"
             SelectedItem="{Binding SelectedArticle}"
+            SelectedIndex="{Binding IndexArticle}"
             HorizontalAlignment="Center"
             Margin="0,47,0,232" Width="444"
         />

@@ -70,6 +70,16 @@ public class SectionViewModel : INotifyPropertyChanged
             OnPropertyChanged(nameof(IndexSection));
         }
     }
+    private int _indexArticle;
+    public int IndexArticle
+    {
+        get => _indexArticle;
+        set
+        {
+            _indexArticle = value;
+            OnPropertyChanged(nameof(IndexArticle));
+        }
+    }
     // Les commandes de la page section
     public ICommand PreviousSectionCommand { get; }
     public ICommand NextSectionCommand { get; }
@@ -83,6 +93,9 @@ public class SectionViewModel : INotifyPropertyChanged
         NextSectionCommand = new RelayCommand(NextSection, CanNextSection);
         PreviousSectionCommand = new RelayCommand(PreviousSection, CanPreviousSection);
 
+        Sections = SectionDataModel.GetAll_Sections();
+        Articles = ArticleDataModel.GetAll_Articles();
+        /*
         Sections = new ObservableCollection<Section>
         {
             new Section(1, "Section 1"),
@@ -112,9 +125,12 @@ public class SectionViewModel : INotifyPropertyChanged
             Articles[4],
             Articles[5],
         };
+        */
+
         IndexSection = 3;
+
         SelectedSection = Sections[IndexSection];
-        //SelectedArticle = SelectedSection.Liste_Articles_Section[0]; Pour une sélection automatique de l'article
+
         Sections[0].NomSection = "Section 1 - Updated";
 
     }

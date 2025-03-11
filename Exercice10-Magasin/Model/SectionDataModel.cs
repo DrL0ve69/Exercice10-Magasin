@@ -21,7 +21,7 @@ class SectionDataModel
         new Section(7, "Section 7"),
         new Section(8, "Section 8"),
         new Section(9, "Section 9"),
-        new Section(10, "Section 10"),
+        new Section(10, "Tous les articles", ArticleDataModel.GetAll_Articles()),
     };
     public static ObservableCollection<Section> GetAll_Sections() 
     {
