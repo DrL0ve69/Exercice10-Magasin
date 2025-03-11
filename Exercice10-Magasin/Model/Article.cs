@@ -89,7 +89,7 @@ public class Article
     public override string ToString()
     {
         return $"Code: {Code}, Nom: {NomArticle}\n" +
-            $"PrixVente: {PrixVente}, Quantité en stock: {QuantiteStock}";
+            $"PrixVente: {PrixVente:F2}$, Quantité en stock: {QuantiteStock}";
     }
     // La méthode <<Deplacer>> se retrouve présentement dans section
     /*

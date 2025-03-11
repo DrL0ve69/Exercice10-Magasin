@@ -97,5 +97,6 @@ public class SectionViewModel : INotifyPropertyChanged
         // L'achat fonctionne mais l'interface ne fonctionne pas...
         
         SelectedArticle.Vendre(1);
+        
     }
 }

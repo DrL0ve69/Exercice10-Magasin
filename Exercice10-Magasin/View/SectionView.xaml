@@ -24,7 +24,7 @@
             VerticalAlignment="Top" 
             FontSize="24"/>
         <ListBox
-            ItemsSource="{Binding Articles}"
+            ItemsSource="{Binding SelectedSection.Liste_Articles_Section}"
             SelectedItem="{Binding SelectedArticle}"
             HorizontalAlignment="Center"
             Margin="0,47,0,232" Width="444"
