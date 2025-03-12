@@ -9,14 +9,8 @@ using System.Threading.Tasks;
 
 namespace Exercice10_Magasin.ViewModel;
 
-public class ArticleViewModel : INotifyPropertyChanged
+public class ArticleViewModel : BaseViewModel
 {
-    public event PropertyChangedEventHandler? PropertyChanged;
-    private void OnPropertyChanged(string propertyName)
-    {
-        if (PropertyChanged != null)
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
     private ObservableCollection<Article> _articles = new();
     public ObservableCollection<Article> Articles 
     {

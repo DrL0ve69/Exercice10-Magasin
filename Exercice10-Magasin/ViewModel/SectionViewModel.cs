@@ -11,14 +11,9 @@ using System.Windows.Input;
 
 namespace Exercice10_Magasin.ViewModel;
 
-public class SectionViewModel : INotifyPropertyChanged
+public class SectionViewModel : BaseViewModel
 {
-    public event PropertyChangedEventHandler? PropertyChanged;
-    private void OnPropertyChanged(string propertyName)
-    {
-        if (PropertyChanged != null)
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
+
     private ObservableCollection<Section> _sections;
     public ObservableCollection<Section> Sections
     {
