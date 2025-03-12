@@ -75,6 +75,15 @@ public class SectionViewModel : BaseViewModel
             OnPropertyChanged(nameof(IndexArticle));
         }
     }
+    private static ObservableCollection<Article> _articlesPanier = new();
+    public static ObservableCollection<Article> ArticlesPanier 
+    {
+        get => _articlesPanier;
+        set 
+        {
+            _articlesPanier = value;
+        }
+    }
     // Les commandes de la page section
     public ICommand PreviousSectionCommand { get; }
     public ICommand NextSectionCommand { get; }
@@ -137,6 +146,7 @@ public class SectionViewModel : BaseViewModel
         // HOOOOLD ON SON !!! Si on change de page et qu'on revient, ça fonctionne...
 
         SelectedArticle.Vendre(1);
+        ArticlesPanier.Add(SelectedArticle);
     }
     private bool CanPreviousSection() => IndexSection > 0;
     private void PreviousSection()

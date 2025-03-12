@@ -3,18 +3,36 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Exercice10_Magasin.View"
+      xmlns:local="clr-namespace:Exercice10_Magasin.View" xmlns:vm="clr-namespace:Exercice10_Magasin.ViewModel"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="FactureView">
 
+    <Page.DataContext>
+        <vm:FactureViewModel/>
+    </Page.DataContext>
     <Grid Background="Green">
-        
+
         <Label 
             Content="Facture" 
             HorizontalAlignment="Center" 
-            VerticalAlignment="Center" 
-            FontSize="24"/>
-        
+            VerticalAlignment="Top" 
+            FontSize="24"
+        />
+        <StackPanel Margin="10,43,475,10">
+            <Label Content="Nom:"/>
+
+            <TextBox x:Name="txtBoxNom"/>
+
+            <Label Content="Prénom:"/>
+
+            <TextBox x:Name="txtBoxPrenom"/>
+
+
+        </StackPanel>
+        <ListBox 
+            ItemsSource="{Binding ArticlesFacture}" 
+            Margin="368,43,26,135"/>
+
     </Grid>
 </Page>
