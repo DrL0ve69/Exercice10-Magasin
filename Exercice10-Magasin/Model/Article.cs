@@ -58,6 +58,7 @@ public class Article
             _quantiteStock = value;
         }
     }
+    public int Qte_Acheter = 0;
     public Article() 
     {
         Code = "Non-disponible";
@@ -85,11 +86,13 @@ public class Article
         if (quantite < 1) throw new ArgumentException("La quantité vendue doit être au moins 1.");
         if (quantite > QuantiteStock) throw new ArgumentException("La quantité vendue ne doit pas dépasser la quantité en stock.");
         QuantiteStock -= quantite;
+        Qte_Acheter += quantite;
     }
     public override string ToString()
     {
         return $"Code: {Code}, Nom: {NomArticle}\n" +
-            $"PrixVente: {PrixVente:F2}$, Quantité en stock: {QuantiteStock}";
+            $"PrixVente: {PrixVente:F2}$, Quantité en stock: {QuantiteStock}\n" +
+            $"Quantité dans vôtre panier: {Qte_Acheter}";
     }
     // La méthode <<Deplacer>> se retrouve présentement dans section
     /*

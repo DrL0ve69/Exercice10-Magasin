@@ -146,7 +146,7 @@ public class SectionViewModel : BaseViewModel
         // HOOOOLD ON SON !!! Si on change de page et qu'on revient, ça fonctionne...
 
         SelectedArticle.Vendre(1);
-        ArticlesPanier.Add(SelectedArticle);
+        if(!ArticlesPanier.Contains(SelectedArticle)) ArticlesPanier.Add(SelectedArticle);
     }
     private bool CanPreviousSection() => IndexSection > 0;
     private void PreviousSection()
